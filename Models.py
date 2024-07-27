@@ -520,45 +520,6 @@ y_preda[1:21,:].round(2)
 y_preda = model.predict(X_test)
 
 
-# In[ ]:
-
-
-
-
-
-# In[47]:
-
-
-history = history2
-
-
-# In[48]:
-
-
-plt.plot(history.history['loss'], label='train')
-plt.plot(history.history['val_loss'], label='val')
-plt.legend()
-plt.show()
-
-
-# In[ ]:
-
-
-def summarize_diagnostics(history):
-    fig,ax=plt.subplots(2)
-    fig.suptitle("Loss")
-    fig.tight_layout()
-    # plot loss
-    ax[0].set_title('Cross Entropy Loss')
-    ax[0].plot(history.history['loss'], color='blue', label='Training loss')
-    ax[0].plot(history.history['val_loss'], color='orange', label='validation loss')
-    ax[0].legend(loc='best', shadow=True)
-    # plot accuracy
-    ax[1].set_title('Classification Accuracy')
-    ax[1].plot(history.history['accuracy'], color='blue', label='train')
-    ax[1].plot(history.history['val_accuracy'], color='orange', label='test')
-    ax[1].legend(loc='best', shadow=True)
-
 
 # In[192]:
 
@@ -583,15 +544,4 @@ for epoch in range(epochs):
     # Reset states after each epoch
     model.reset_states()
 
-
-# In[ ]:
-
-
-print(f'Training Loss: {history.history["loss"][-1]}')
-print(f'Validation Loss: {history.history["val_loss"][-1]}')
-#print(f'Validation Accuracy: {hist.history["val_accuracy"][-1]}')
-#print(f'No of correct validation images: {np.sum(Y_true==Y_pred_classes)}')
-#print(f'No of incorrect validation images: {np.sum(Y_true!=Y_pred_classes)}')
-print("Graphs:")
-summarize_diagnostics(history)
 
